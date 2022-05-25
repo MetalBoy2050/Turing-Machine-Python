@@ -1,0 +1,74 @@
+States:
+<!-- = comentarii
+<!-- eqwlkewjkwq
+    <!--        kqlwewqljwqe
+   <!--  qwlkeqwlkjew
+        <!--  KWekkqwejlqwelkjlkqe
+
+<!-- Text random aici
+---Start---
+q0, S
+<!-- un comentariu aici
+q1
+q2
+<!-- alt comentariu aici
+q3
+<!-- si inca unu Aici
+q4, A
+q5, F
+l5
+abc432
+sdaklk1234
+---End---
+
+<!-- Alt text random aici
+
+Sigma:
+<!-- eqwlkewjkwq
+   <!--        kqlwewqljwqe
+   <!--  qwlkeqwlkjew
+       <!--  KWekkqwejlqwelkjlkqe
+
+---Start---
+a
+b
+c
+@
+$
+#
+_
++
+-
+<!-- Alt comentariu aici
+---End---
+
+<!-- Alt text random aici
+
+gama:
+
+---Start---
+a
+b
+c
+@
+$
+#
+_
++
+-
+<!-- Random Text here
+---End---
+
+DeLTa:
+
+---Start---
+q4, c -> q3, l, L
+q4, c -> q3, l, L
+q4, c -> q3, l, L
+q4, c -> q3, l, L
+q4, c -> q3, l, L
+---End---
+
+<!-- Random Text here
+<!-- Random Text here
+<!-- Random Text here
