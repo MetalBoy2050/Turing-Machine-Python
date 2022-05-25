@@ -5,7 +5,7 @@ import re
 turingMachine = SimpleNamespace()
 
 turingMachine.states, turingMachine.sigma, turingMachine.gama, turingMachine.delta = {}, {}, {}, {}
-turingMachine.q0, turingMachine.qAccept, turingMachine.qFail = '', '', ''
+turingMachine.q0, turingMachine.qAccept, turingMachine.qReject = '', '', ''
 
 
 def parseUselessLines(f):
@@ -44,8 +44,8 @@ def parseStates(f, turingMachine):
                     turingMachine.q0 = line[0]
                 elif line[1] == 'A':
                     turingMachine.qAccept = line[0]
-                elif line[1] == 'F':
-                    turingMachine.qFail = line[0]
+                elif line[1] == 'R':
+                    turingMachine.qReject = line[0]
 
             line = parseUselessLines(f)
 

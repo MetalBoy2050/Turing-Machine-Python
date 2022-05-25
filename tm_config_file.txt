@@ -1,74 +1,42 @@
 States:
-<!-- = comentarii
-<!-- eqwlkewjkwq
-    <!--        kqlwewqljwqe
-   <!--  qwlkeqwlkjew
-        <!--  KWekkqwejlqwelkjlkqe
 
-<!-- Text random aici
 ---Start---
-q0, S
-<!-- un comentariu aici
-q1
+qAccept, A
+qReject, R
+q1, S
 q2
-<!-- alt comentariu aici
 q3
-<!-- si inca unu Aici
-q4, A
-q5, F
-l5
-abc432
-sdaklk1234
+q4
+q5
 ---End---
-
-<!-- Alt text random aici
 
 Sigma:
-<!-- eqwlkewjkwq
-   <!--        kqlwewqljwqe
-   <!--  qwlkeqwlkjew
-       <!--  KWekkqwejlqwelkjlkqe
-
 ---Start---
-a
-b
-c
-@
-$
+0
+---End---
+
+Gama:
+---Start---
+0
+x
 #
-_
-+
--
-<!-- Alt comentariu aici
 ---End---
 
-<!-- Alt text random aici
-
-gama:
-
+Delta:
 ---Start---
-a
-b
-c
-@
-$
-#
-_
-+
--
-<!-- Random Text here
+q1, 0 -> q2, #, R
+q1, # -> qReject, #, R
+q1, x -> qReject, x, R
+q2, x -> q2, x, R
+q2, # -> qAccept, #, R
+q2, 0 -> q3, x, R
+q3, x -> q3, x, R
+q3, # -> q5, #, L
+q5, 0 -> q5, 0, L
+q5, x -> q5, x, L
+q5, # -> q2, #, R
+q3, 0 -> q4, 0, R
+q4, x -> q4, x, R
+q4, 0 -> q3, x, R
+q4, # -> qReject, #, R
 ---End---
-
-DeLTa:
-
----Start---
-q4, c -> q3, l, L
-q4, c -> q3, l, L
-q4, c -> q3, l, L
-q4, c -> q3, l, L
-q4, c -> q3, l, L
----End---
-
-<!-- Random Text here
-<!-- Random Text here
-<!-- Random Text here
