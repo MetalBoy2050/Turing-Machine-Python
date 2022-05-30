@@ -1,5 +1,7 @@
+from contextlib import nullcontext
+from logging import raiseExceptions
 import sys
-from types import SimpleNamespace
+from types import NoneType, SimpleNamespace
 import re
 
 turingMachine = SimpleNamespace()
@@ -35,6 +37,14 @@ def parseStates(f, turingMachine):
         while line != '---End---':
             line = line.split(', ')
 
+            if len(line) == 0:
+                raise Exception('Empty line!')
+
+            x = re.search('\w+\d*', line[0])
+
+            if(not x or x.group() != line[0]):
+                raise Exception('Stare invalida!')
+
             if len(line) == 1:
                 turingMachine.states[line[0]] = 1
             elif len(line) == 2:
@@ -46,6 +56,10 @@ def parseStates(f, turingMachine):
                     turingMachine.qAccept = line[0]
                 elif line[1] == 'R':
                     turingMachine.qReject = line[0]
+                else:
+                    raise Exception('Not defined in program!')
+            else:
+                raise Exception('Stari invalide!')
 
             line = parseUselessLines(f)
 
@@ -60,8 +74,12 @@ def parseSigma(f, turingMachine):
         while line != '---End---':
             line = line.split(' ')
 
-            if len(line) == 1:
-                turingMachine.sigma[line[0]] = 1
+            if len(line) > 1:
+                raise Exception('Mai mult de un caracter pe linie!')
+            if len(line[0]) > 1:
+                raise Exception('Sir de caractere bagat in loc de caracter')
+
+            turingMachine.sigma[line[0]] = 1
 
             line = parseUselessLines(f)
 
@@ -76,8 +94,12 @@ def parseGama(f, turingMachine):
         while line != '---End---':
             line = line.split(' ')
 
-            if len(line) == 1:
-                turingMachine.gama[line[0]] = 1
+            if len(line) > 1:
+                raise Exception('Mai mult de un caracter pe linie!')
+            if len(line[0]) > 1:
+                raise Exception('Sir de caractere bagat in loc de caracter')
+
+            turingMachine.gama[line[0]] = 1
 
             line = parseUselessLines(f)
 
@@ -98,6 +120,8 @@ def parseDelta(f, turingMachine):
             if len(line) == 5:
                 turingMachine.delta[(line[0], line[1])
                                     ] = (line[2], line[3], line[4])
+            else:
+                raise Exception('Functie proasta!')
 
             line = parseUselessLines(f)
 
@@ -129,7 +153,11 @@ def parsingFile(file, turingMachine=turingMachine):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        parsingFile('./' + sys.argv[1])
+    if len(sys.argv) == 1:
+        raise Exception('Prea putine argumente!')
+    elif len(sys.argv) > 2:
+        raise Exception('Prea multe argumente!')
+
+    parsingFile('./' + sys.argv[1])
 
     print(turingMachine)
