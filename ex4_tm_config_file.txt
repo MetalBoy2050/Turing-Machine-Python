@@ -1,0 +1,113 @@
+States:
+
+---Start---
+qAccept, A
+qReject, R
+q0, S
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+q9
+q10
+q11
+q12
+q13
+q14
+---End---
+
+Sigma:
+---Start---
+a
+b
+c
+#
+---End---
+
+Gama:
+---Start---
+a
+b
+c
+#
+$
+^
+---End---
+
+Delta:
+---Start---
+q0, a -> q1, $, R
+q1, a -> q1, a, R
+q1, b -> q1, b, R
+q1, c -> q1, c, R
+q1, # -> q2, #, R
+q2, # -> q2, #, R
+q2, b -> qReject, $, R
+q2, c -> qReject, $, R
+q2, a -> q3, $, R
+q2, $ -> q2, $, R
+q3, a -> q3, a, R
+q3, b -> q3, b, R
+q3, c -> q3, c, R
+q3, ^ -> q4, ^, L
+q4, a -> q4, a, L
+q4, b -> q4, b, L
+q4, c -> q4, c, L
+q4, $ -> q4, $, L
+q4, # -> q5, #, L
+q5, a -> q5, a, L
+q5, b -> q5, b, L
+q5, c -> q5, c, L
+q5, $ -> q0, $, R
+
+q0, b -> q6, $, R
+q6, a -> q6, a, R
+q6, b -> q6, b, R
+q6, c -> q6, c, R
+q6, # -> q7, #, R
+q7, # -> q7, #, R
+q7, a -> qReject, $, R
+q7, c -> qReject, $, R
+q7, b -> q8, $, R
+q7, $ -> q7, $, R
+q8, a -> q8, a, R
+q8, b -> q8, b, R
+q8, c -> q8, c, R
+q8, ^ -> q9, ^, L
+q9, a -> q9, a, L
+q9, b -> q9, b, L
+q9, c -> q9, c, L
+q9, $ -> q9, $, L
+q9, # -> q5, #, L
+
+q0, c -> q10, $, R
+q10, a -> q10, a, R
+q10, b -> q10, b, R
+q10, c -> q10, c, R
+q10, # -> q11, #, R
+q11, # -> q11, #, R
+q11, a -> qReject, $, R
+q11, b -> qReject, $, R
+q11, c -> q12, $, R
+q11, $ -> q11, $, R
+q12, a -> q12, a, R
+q12, b -> q12, b, R
+q12, c -> q12, c, R
+q12, ^ -> q13, ^, L
+q13, a -> q13, a, L
+q13, b -> q13, b, L
+q13, c -> q13, c, L
+q13, $ -> q13, $, L
+q13, # -> q5, #, L
+
+q0, # -> q14, #, R
+q14, $ -> q14, $, R
+q14, a -> qReject, a, R
+q14, b -> qReject, b, R
+q14, c -> qReject, c, R
+q14, ^ -> qAccept, ^, R
+---End---

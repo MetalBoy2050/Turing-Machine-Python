@@ -58,7 +58,19 @@ if __name__ == '__main__':
         else:
             hasReachedAState = 0
 
+    def finalState():
+        print("Wrong!")
+
     if hasReachedAState == 0:
         print("Wrong!")
     else:
-        print("Correct!")
+        # print("here")
+        semafor = 0
+
+        for i in range(len(tapes[0])):
+            if tapes[0][i] != tapes[1][i]:
+                finalState()
+                semafor = 1
+
+        if semafor == 0:
+            print("Correct!")

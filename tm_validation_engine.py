@@ -1,3 +1,4 @@
+from ast import parse
 from contextlib import nullcontext
 from logging import raiseExceptions
 import sys
@@ -152,12 +153,20 @@ def parsingFile(file, turingMachine=turingMachine):
             line = parseUselessLines(f)
 
 
+def parseAndVerify(file):
+    parsingFile(file)
+
+    for x in turingMachine.delta:
+        if(turingMachine.states.get(turingMachine.delta[x][0], 0) == 0):
+            raise Exception("Ceva aici!")
+
+
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         raise Exception('Prea putine argumente!')
     elif len(sys.argv) > 2:
         raise Exception('Prea multe argumente!')
 
-    parsingFile('./' + sys.argv[1])
+    parseAndVerify('./' + sys.argv[1])
 
     print(turingMachine)
